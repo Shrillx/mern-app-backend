@@ -11,7 +11,7 @@ const playlistRoutes = require("./routes/playlist");
 require("dotenv").config();
 const cors = require("cors");
 const app = express();
-const port = 8000;
+const PORT = process.env.PORT || 8000;
 
 app.use(cors());
 app.use(express.json());
@@ -107,6 +107,6 @@ app.use("/song", songRoutes);
 app.use("/playlist", playlistRoutes);
 
 // Now we want to tell express that our server will run on localhost:8000
-app.listen(port, () => {
-    console.log("App is running on port " + port);
+app.listen(PORT, () => {
+    console.log("App is running on port " + PORT);
 });
