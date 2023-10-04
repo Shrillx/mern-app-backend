@@ -13,7 +13,10 @@ const cors = require("cors");
 const app = express();
 const PORT = process.env.PORT || 8000;
 
-app.use(cors());
+app.use(cors({
+  origin: 'https://mern-app-frontend-phi.vercel.app',
+  credentials: true
+}));
 app.use(express.json());
 
 // connect mongodb to our node app.
