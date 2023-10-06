@@ -8,6 +8,7 @@ const User = require("./models/User");
 const authRoutes = require("./routes/auth");
 const songRoutes = require("./routes/song");
 const playlistRoutes = require("./routes/playlist");
+const userRoutes = require("./routes/user")
 require("dotenv").config();
 const cors = require("cors");
 const app = express();
@@ -108,6 +109,7 @@ app.get("/", (req, res) => {
 app.use("/auth", authRoutes);
 app.use("/song", songRoutes);
 app.use("/playlist", playlistRoutes);
+app.use("/user",userRoutes)
 
 // Now we want to tell express that our server will run on localhost:8000
 app.listen(PORT, () => {

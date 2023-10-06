@@ -3,7 +3,7 @@ const router = express.Router();
 const User = require("../models/User");
 const bcrypt = require("bcrypt");
 const { getToken } = require("../utils/helpers");
-const passport = require("passport");
+
 
 // This POST route will help to register a user
 router.post("/register", async (req, res) => {
@@ -78,13 +78,6 @@ router.post("/login", async (req, res) => {
   return res.status(200).json(userToReturn);
 });
 
-router.get(
-    "/current-user",
-    passport.authenticate("jwt", { session: false }),
-    (req, res) => {
-        const { firstName, lastName } = req.user;
-      res.status(200).json({ firstName, lastName } );
-    }
-  );
+
 
 module.exports = router;
